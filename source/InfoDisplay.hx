@@ -3,12 +3,12 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
+import flixel.util.FlxTimer;
 
 class InfoDisplay{
 	public var _actionPointText:FlxText;
 	public var _subtitleText:FlxText;
 	public var _textMap:Map<String,String>;
-
 	private var _gamePlay:GamePlay;
 
 	public function new(){
@@ -21,9 +21,11 @@ class InfoDisplay{
 		_textMap = new Map();
 		_textMap.set("Select", "Select your target for tonight");
 		_textMap.set("Target", "You have selected your target for tonight.");
-		_textMap.set("Option", "1. Behaviour \n 2. Distract");
+		_textMap.set("Option", "1. Behaviour\n 2. Distract");
+		_textMap.set("Who", "Who do want to vote ?");
+		_textMap.set("Vote", "Time to Vote the Killer");
 		trace(_textMap);
-	
+
 	}
 
 	public function subscribe( gamePlay:GamePlay):Void{
@@ -46,9 +48,10 @@ class InfoDisplay{
 	}
 
 	//to make it easy and straight forward
-	public function showText( string_key:String):Void{
-		
+	public function showText( string_key:String):Void{	
 		_subtitleText.text = _textMap.get(string_key);
 	}
+
+
 	//infuture will besomething like ,show(textmap_key, remainderString)
 }
